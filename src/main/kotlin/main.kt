@@ -1,47 +1,52 @@
-import javax.swing.text.Document
+import br.com.alura.bytebank.modelo.Endereco
+import java.lang.NumberFormatException
 
 fun main() {
-//    val endereco: Any = Endereco(logradouro = "Rua Vergueiro", bairro = "Vila Mariana")
-//    val novoEndereco = Endereco(numero = 10000, complemento = "Alura")
-//
-//    println(endereco.equals(endereco))
-//    println(endereco.equals(novoEndereco))
-//
-//    println(endereco.toString())
-//    println(novoEndereco.toString())
-//
-//    println(endereco.hashCode())
-//    println(novoEndereco.hashCode())
+    println("início main")
 
-    val pessoa = Pessoa(nome="Alex", idade=30)
-    val pessoa2 = Pessoa(nome="Alex", idade=30)
+    val entrada = "1,9"
 
-    println(pessoa.equals(pessoa2))
-
-    val documento = Documento(rg = "11.111.111-1", cpf = "222.222.222-22")
-    val documento2 = documento.copy(rg = "33.333.333-3")
-
-    println(documento.equals(documento2))
-
-    println(documento)
-    println(documento2)
-
-    val (rg, cpf) = documento
-    println(rg)
-    println(cpf)
-
-}
-
-class Pessoa(val nome: String, val idade: Int) {
-
-    fun fala() {
-        println("Emite som")
+    val valorRecebido: Double? = try {
+        entrada.toDouble()
+    } catch (e: NumberFormatException) {
+        println("Problema na conversão")
+        e.printStackTrace()
+        null
     }
+
+    val valorComTaxa: Double? = if (valorRecebido != null) {
+        valorRecebido + 0.1
+    } else {
+        null
+    }
+
+    if (valorComTaxa != null) {
+        println("Valor recebido: $valorComTaxa")
+    } else {
+        println("Valor inválido")
+    }
+
+    funcao1()
+    println("fim main")
 }
 
-data class Documento(val rg: String, val cpf: String)
+fun funcao1() {
+    println("início funcao1")
+    try {
+        funcao2()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        println("ClassCastException foi capturada.")
+    }
+    println("fim funcao1")
+}
 
-fun imprime(valor: Any): Any {
-    println(valor)
-    return valor
+fun funcao2() {
+    println("início funcao2")
+    for (i in 1..5) {
+        println(i)
+        val endereco = Any()
+        endereco as Endereco
+    }
+    println("fim funcao2")
 }
