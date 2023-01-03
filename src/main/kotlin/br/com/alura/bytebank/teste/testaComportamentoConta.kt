@@ -1,5 +1,6 @@
 package br.com.alura.bytebank.teste
 
+import br.com.alura.bytebank.SaldoInsuficienteException
 import br.com.alura.bytebank.modelo.Cliente
 import br.com.alura.bytebank.modelo.ContaCorrente
 import br.com.alura.bytebank.modelo.ContaPoupanca
@@ -53,11 +54,15 @@ fun testaComportamentoConta() {
     println()
 
     println("Transferência da conta da ${contaFran.titular.nome} para o ${contaAlex.titular.nome}")
-    if (contaFran.transfere(destino = contaAlex, valor = 100.0)) {
+
+    try {
+        contaFran.transfere(destino = contaAlex, valor = 100.0)
         println("Transferência sucedida")
-    } else {
-        println("Falha na transferência")
+    } catch (e: SaldoInsuficienteException) {
+        println("Saldo insuficiente")
+        e.printStackTrace()
     }
+
     println("Saldo da conta do ${contaAlex.titular.nome} é: ${contaAlex.saldo}")
     println("Saldo da conta da ${contaFran.titular.nome} é: ${contaFran.saldo}")
 }
