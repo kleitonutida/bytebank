@@ -1,8 +1,9 @@
 package br.com.alura.bytebank.modelo
 
 abstract class Conta(
-    val numero: Int
-) {
+        val titular: Cliente,
+        val numero: Int
+) : Autenticavel by titular {
     companion object Contador {
         var total: Int = 0
             private set
@@ -36,10 +37,11 @@ abstract class Conta(
 }
 
 class ContaCorrente(
-    val titular: Cliente,
-    numero: Int
+        titular: Cliente,
+        numero: Int
 ) : ContaTransferivel(
-    numero = numero
+        titular = titular,
+        numero = numero
 ) {
     override fun saca(valor: Double) {
         val valorComTaxa = valor + 0.1
@@ -50,10 +52,11 @@ class ContaCorrente(
 }
 
 class ContaPoupanca(
-    val titular: Cliente,
-    numero: Int
+        titular: Cliente,
+        numero: Int
 ) : ContaTransferivel(
-    numero = numero
+        titular = titular,
+        numero = numero
 ) {
     override fun saca(valor: Double) {
         if (valor <= this.saldo) {
