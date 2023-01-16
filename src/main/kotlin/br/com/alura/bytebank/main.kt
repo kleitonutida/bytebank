@@ -1,38 +1,39 @@
 package br.com.alura.bytebank
 
 fun main() {
-//    testaTipoFuncaoReferencia()
-//    testaTipoFuncaoClasse()
+    testaTipoFuncaoReferencia()
+    testaTipoFuncaoClasse()
 
     // Com as funções lambda e anônimas não é possível reaproveitar da mesma forma que utilizando classes ou referências
 
-    val minhaFuncaoLambda: () -> Unit = {
-        println("Executa como Lambda")
-    }
-    println(minhaFuncaoLambda())
-
-    val minhaFuncaoAnonima: () -> Unit = fun() {
-        println("Executa como Anonima")
-    }
-    println(minhaFuncaoAnonima())
+//    val minhaFuncaoLambda: () -> Unit = {
+//        println("Executa como Lambda")
+//    }
+//    println(minhaFuncaoLambda())
+//
+//    val minhaFuncaoAnonima: () -> Unit = fun() {
+//        println("Executa como Anonima")
+//    }
+//    println(minhaFuncaoAnonima())
 }
 
 fun testaTipoFuncaoReferencia() {
-    val minhaFuncao: () -> Unit = ::teste
-    println(minhaFuncao())
+    val minhaFuncao: (a: Int, b: Int) -> Int = ::soma
+    println(minhaFuncao(5, 10))
 }
 
 fun testaTipoFuncaoClasse() {
-    val minhaFuncaoClasse: () -> Unit = Teste()
-    println(minhaFuncaoClasse())
+    val minhaFuncaoClasse: (Int, Int) -> Int = Soma()
+    // Os parâmetros devem ser informados apenas ao invocar a chamada do método, pois ele faz o uso do lazy evaluation
+    println(minhaFuncaoClasse(10, 10))
 }
 
-fun teste() {
-    println("Executa teste")
+fun soma(a: Int, b: Int): Int {
+    return a + b
 }
 
-class Teste: () -> Unit {
-    override fun invoke() {
-        println("Executa invoke do Teste")
+class Soma : (Int, Int) -> Int {
+    override fun invoke(a: Int, b: Int): Int {
+        return a + b
     }
 }
