@@ -1,20 +1,22 @@
 package br.com.alura.bytebank
 
 fun main() {
-    testaTipoFuncaoReferencia()
-    testaTipoFuncaoClasse()
+//    testaTipoFuncaoReferencia()
+//    testaTipoFuncaoClasse()
 
     // Com as funções lambda e anônimas não é possível reaproveitar da mesma forma que utilizando classes ou referências
 
-//    val minhaFuncaoLambda: () -> Unit = {
-//        println("Executa como Lambda")
-//    }
-//    println(minhaFuncaoLambda())
-//
-//    val minhaFuncaoAnonima: () -> Unit = fun() {
-//        println("Executa como Anonima")
-//    }
-//    println(minhaFuncaoAnonima())
+//    val minhaFuncaoLambda: (Int, Int) -> Int = { a, b ->
+    val minhaFuncaoLambda = { a: Int, b: Int ->
+        a + b
+    }
+    println(minhaFuncaoLambda(15, 10))
+
+//    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a, b): Int {
+    val minhaFuncaoAnonima = fun(a: Int, b: Int): Int {
+        return a + b
+    }
+    println(minhaFuncaoAnonima(20, 10))
 }
 
 fun testaTipoFuncaoReferencia() {
@@ -33,7 +35,5 @@ fun soma(a: Int, b: Int): Int {
 }
 
 class Soma : (Int, Int) -> Int {
-    override fun invoke(a: Int, b: Int): Int {
-        return a + b
-    }
+    override fun invoke(a: Int, b: Int): Int = a + b
 }
