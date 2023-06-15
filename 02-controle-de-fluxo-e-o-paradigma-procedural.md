@@ -34,3 +34,71 @@ when {
     else -> println("conta é negativa")
 }
 ```
+
+# FOR
+
+O operador `for` é utilizado para executar uma repetição em uma determinada coleção a um determinado número de vezes.
+
+Este operador pode ser utilizado com alguns operadores como o range (`..`), o downTo e o step.
+
+- `Range`: O operador range é representado pelos `..` e é utilizado para executar um determinado número vezes em um
+  determinado intervalo, sendo que o incremento/decremento pode ser variável utilizando o operador `step`, por padrão o
+  operador o incremento/decremento é de 1.
+- `DownTo`: O `downTo` ao contrário do range é utilizado para executar a repetição em ordem decrescente ou ordem
+  inversa. Ele também pode ser combinado com o `step`.
+- `Step`: O `step` é utilizado para incrementar ou decrementar um valor variável dentro de um intervalo. Ele pode ser
+  utilizado tanto com o operador `range` quanto com o operador `downTo`.
+
+Dentro do laço for, também pode ser utilizado as palavras `break` e `continue` para para a execução ou para o valor seguinte
+dentro da estrutura de repetição, respectivamente.
+
+```kotlin
+for (i in 1..5) {
+    if (i == 4) break
+
+    val titular: String = "Alex $i"
+    val numeroConta: Int = 1000 + i
+    var saldo = i + 10.0
+
+    println("titular $titular")
+    println("número da conta $numeroConta")
+    println("saldo da conta $saldo")
+    println()
+}
+
+for (i in 5 downTo 1 step 2) {
+    val titular: String = "Alex $i"
+    val numeroConta: Int = 1000 + i
+    var saldo = i + 10.0
+
+    println("titular $titular")
+    println("número da conta $numeroConta")
+    println("saldo da conta $saldo")
+    println()
+}
+```
+
+# WHILE
+
+Da mesma forma que o `for`, o `while` é uma estrutura de repetição utilizada para executar uma determinada quantidade de
+vezes uma intrução. A diferença é que ele necessita de uma condição inicial e que o controle de incremento ou decremento
+seja feito manualmente.
+
+As palavras `break` e `continue` funcionam no `while` do mesmo jeito que no `for`.
+
+```kotlin
+var i = 0
+
+while (i < 5) {
+    val titular: String = "Alex $i"
+    val numeroConta: Int = 1000 + i
+    var saldo = i + 10.0
+
+    println("titular $titular")
+    println("número da conta $numeroConta")
+    println("saldo da conta $saldo")
+    println()
+
+    i++
+}
+```
