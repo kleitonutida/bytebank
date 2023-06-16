@@ -18,7 +18,7 @@ if (saldo > 0.0) { // Condição será executada se o valor for maior que zero
 }
 ```
 
-# WHEN
+## WHEN
 
 O `when`, da mesma forma que o `if`, pode ser utilizado para executar uma determinada tarefa dada uma condição
 informada, só que de uma forma declarada de uma forma mais sucinta (bem parecido com o switch-case de outras
@@ -35,7 +35,7 @@ when {
 }
 ```
 
-# FOR
+## FOR
 
 O operador `for` é utilizado para executar uma repetição em uma determinada coleção a um determinado número de vezes.
 
@@ -78,7 +78,7 @@ for (i in 5 downTo 1 step 2) {
 }
 ```
 
-# WHILE
+## WHILE
 
 Da mesma forma que o `for`, o `while` é uma estrutura de repetição utilizada para executar uma determinada quantidade de
 vezes uma intrução. A diferença é que ele necessita de uma condição inicial e que o controle de incremento ou decremento
