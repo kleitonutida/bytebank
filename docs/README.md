@@ -1,7 +1,7 @@
 # Formação Kotlin
 
 1. [Orientação a objetos](1.orientacao-a-objetos/README.md)
-2. Herança, polimorfismo e interface
+2. [Herança, polimorfismo e interface](2.heranca-polimorfismo-e-interface/README.md)
 3. Recursos da linguagem com pacotes e composição
 4. Lidando com exceptions e referências nulas
 5. Desenvolva com coleções, arrays e listas
