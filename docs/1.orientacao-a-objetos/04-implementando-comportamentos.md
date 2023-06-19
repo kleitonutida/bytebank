@@ -47,15 +47,7 @@ Na orientação utilizamos o encapsulamento para restringir a manipulação dire
 classe seja capaz de modificar o valor e somos capaz também de adicionar trechos de código antes ou após inicialização
 do atributo.
 
-```kotlin
-
-```
-
 # Modificadores de acesso
 
 Os modificadores de acesso ou modificadores de visibilidade são responsáveis por tratar o acesso a um determinado
 atributo de uma classe. Com ele conseguimos restingir o acesso a um determinado atributo ou classe. 
-
-```kotlin
-
-```
