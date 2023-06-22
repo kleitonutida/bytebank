@@ -1,11 +1,16 @@
-package br.com.alura.bytebank
+package br.com.alura.bytebank.teste
+
+import br.com.alura.bytebank.funcionario.Analista
+import br.com.alura.bytebank.funcionario.calculo.CalculadoraBonificacao
+import br.com.alura.bytebank.funcionario.Diretor
+import br.com.alura.bytebank.funcionario.Gerente
 
 fun main() {
     testaFuncionarios()
 }
 
 fun testaFuncionarios() {
-    val alex = Funcionario(
+    val alex = Analista(
         nome = "Alex",
         cpf = "111.111.111-11",
         salario = 1000.0,

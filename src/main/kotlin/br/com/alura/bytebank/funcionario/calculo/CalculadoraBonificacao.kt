@@ -1,4 +1,6 @@
-package br.com.alura.bytebank
+package br.com.alura.bytebank.funcionario.calculo
+
+import br.com.alura.bytebank.funcionario.Funcionario
 
 class CalculadoraBonificacao {
 

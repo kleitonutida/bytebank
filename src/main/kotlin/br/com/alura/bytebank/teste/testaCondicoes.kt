@@ -1,4 +1,4 @@
-package br.com.alura.bytebank
+package br.com.alura.bytebank.teste
 
 fun main() {
     testaCondicoes(1.0)

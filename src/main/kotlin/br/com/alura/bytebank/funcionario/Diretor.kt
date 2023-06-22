@@ -1,17 +1,18 @@
-package br.com.alura.bytebank
+package br.com.alura.bytebank.funcionario
 
-class Gerente(
+class Diretor(
     nome: String,
     cpf: String,
     salario: Double,
     val senha: Int,
+    val plr: Double,
 ) : Funcionario(
     nome = nome,
     cpf = cpf,
     salario = salario,
 ) {
     override val bonificacao: Double
-        get() = super.bonificacao + salario
+        get() = salario + plr
 
     fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {

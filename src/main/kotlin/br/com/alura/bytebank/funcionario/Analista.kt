@@ -1,4 +1,4 @@
-package br.com.alura.bytebank
+package br.com.alura.bytebank.funcionario
 
 class Analista(
     nome: String,
@@ -10,5 +10,5 @@ class Analista(
     salario = salario,
 ) {
     override val bonificacao: Double
-        get() = super.bonificacao + salario * 0.1
+        get() = salario * 0.1
 }
