@@ -1,15 +1,18 @@
 package br.com.alura.bytebank.conta
 
-class ContaPoupanca(
+abstract class ContaTransferivel(
     titular: String,
     numero: Int,
-) : ContaTransferivel(
+) : Conta(
     titular = titular,
     numero = numero,
 ) {
-    override fun saca(valor: Double) {
+    fun transfere(valor: Double, destino: Conta): Boolean {
         if (this.saldo >= valor) {
             this.saldo -= valor
+            destino.deposita(valor)
+            return true
         }
+        return false
     }
 }
